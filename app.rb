@@ -25,6 +25,7 @@ end
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
 end
+
 get '/about' do
 	@error = 'Something wrong!'
 	erb :about
@@ -65,21 +66,16 @@ post '/visit' do
 		values (?, ?, ?, ?, ?)', [@user_name, @user_phone, @user_time, @barber, @color]
 
 	erb "Данные: Имя - #{@user_name}, Телефон: #{@user_phone}, Время записи: #{@user_time}, Парикмахер: #{@barber}"
-
 end
 
 get '/showusers' do
-	
-=begin	db = SQLite3::Database.new	'barbershop.db'
-	db.results_as_hash = true
 
-	db.execute 'select * from Users' do |row|
-		puts "#{row['Name']} \t\t - Имя"
-		puts "#{row['DateStamp']} - время записи"
-		puts '==================================='
-	end
-=end
+	db = get_db
+	db.results_as_hash = true
+	@results = db.execute 'select * from Users order by id desc'
+
 	erb :showusers
+
 end
 
 get '/contacts' do
