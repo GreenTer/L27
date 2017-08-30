@@ -1,6 +1,4 @@
-<% @results %>
-
-<table class="table table-bordered">
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th> Имя </th>
@@ -10,16 +8,15 @@
 			<th> Цвет </th>
 		</tr>
 	</thead>
-	<body>
+	<tbody>
 		<% @results.each do |row| %>
 			<tr>
-				<td> <%= row['Name'] %> </td>
+				<td> <%= row['ClientName'] %> </td>
 				<td> <%= row['Phone'] %> </td>
 				<td> <%= row['DateStamp'] %> </td>
 				<td> <%= row['Barber'] %> </td>
 				<td> <%= row['Color'] %> </td>
 			</tr>
 		<% end %>
-	</body>
+	</tbody>
 </table>
-<% @color %>
