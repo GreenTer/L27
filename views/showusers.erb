@@ -1,19 +1,25 @@
 <% @results %>
 
-<table class="table">
+<table class="table table-bordered">
+	<thead>
 		<tr>
-			<td> Имя </td>
-			<td> Телефон </td>
+			<th> Имя </th>
+			<th> Телефон </th>
+			<th> Время записи </th>
+			<th> Барбер </th>
+			<th> Цвет </th>
 		</tr>
-
+	</thead>
+	<body>
 		<% @results.each do |row| %>
-
-		<tr>
-			<td> <%= row['Name'] %> </td>
-			<td> <%= row['Phone'] %> </td>
-			<td> <%= row['DateStamp'] %> </td>
-			<td> <%= row['Barber'] %> </td>
-			<td> <%= row['Color'] %> </td>
-		</tr>
-	<% end %>
+			<tr>
+				<td> <%= row['Name'] %> </td>
+				<td> <%= row['Phone'] %> </td>
+				<td> <%= row['DateStamp'] %> </td>
+				<td> <%= row['Barber'] %> </td>
+				<td> <%= row['Color'] %> </td>
+			</tr>
+		<% end %>
+	</body>
 </table>
+<% @color %>
