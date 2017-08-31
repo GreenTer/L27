@@ -9,13 +9,11 @@ def is_barber_exists? db, name
 end
 
 def seed_db db, barbers
-
 	barbers.each do |barber|
 		if !is_barber_exists? db, barber
 			db.execute 'insert into Barbers (name) values (?)', [barber]
 		end 
 	end
-
 end
 
 def get_db
@@ -94,13 +92,11 @@ post '/visit' do
 end
 
 get '/showusers' do
-
 	db = get_db
 	db.results_as_hash = true
 	@results = db.execute 'select * from Users order by id desc'
 
 	erb :showusers
-
 end
 
 get '/contacts' do

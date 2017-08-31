@@ -3,10 +3,8 @@
 
 <script type="text/javascript">
   $(function(){
-
     $('#color').simplecolorpicker();
     $('#datetimepicker').datetimepicker();
-
   });
 </script>
 
@@ -28,6 +26,7 @@
 
   <div class="form-group">
     <label for="exampleFormControlSelect1">Ваш парикмахер:</label>
+
     <select class="form-control" name="barber">
       <option <%= @barber == 'Александр Евгеньевич' ? 'selected' : '' %>>Александр Евгеньевич</option>
       <option <%= @barber == 'Лев Александрович' ? 'selected' : '' %>>Лев Александрович</option>
@@ -53,5 +52,4 @@
     </select>
 
     <button type="submit" class="btn btn-primary">Записаться</button>
-
 </form>
