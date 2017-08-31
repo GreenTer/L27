@@ -1,8 +1,8 @@
 #encoding: utf-8
-require 'sqlite3'
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sqlite3'
 
 def is_barber_exists? db, name
 	db.execute('select * from Barbers where name=?', [name]).length > 0
@@ -19,6 +19,7 @@ end
 def get_db
 	db = SQLite3::Database.new 'barbershop.db'
 	db.results_as_hash = true
+
 	return db
 end
 
@@ -93,7 +94,7 @@ post '/visit' do
 		)
 		values (?, ?, ?, ?, ?)', [@user_name, @user_phone, @user_time, @barber, @color]
 
-	erb "Данные: Имя - #{@user_name}, Телефон: #{@user_phone}, Время записи: #{@user_time}, Парикмахер: #{@barber}"
+	erb "<h2>Спасибо! Вы записались.</h2>"
 end
 
 get '/showusers' do
